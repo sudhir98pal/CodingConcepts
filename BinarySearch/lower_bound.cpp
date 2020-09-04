@@ -1,13 +1,15 @@
+
 #include<bits/stdc++.h>
 using namespace std;
+
+//https:// Q->link;leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
 class lowerBound
 {
 public:
-    int findlowerbound(int * arr,int arrSize,int low,int high,int numberTobeSearched)
+    int findlowerbound(int * arr,int low,int high,int numberTobeSearched)
     {
 
         this->arr=arr;
-        this->arrSize=arrSize;
         this->low=low;
         this->high=high;
         this->number=numberTobeSearched;
@@ -16,7 +18,6 @@ public:
 
 private:
     int *arr;
-    int arrSize;
     int number;
     int low;
     int high;
@@ -30,28 +31,24 @@ private:
 int lowerBound::solve()
 {
 
-for(int i=0;i<arrSize;i++)
-{
 
-    cout<<arr[i]<<" ";
-}
-cout<<endl;
     int l=low;
     int r=high;
     int m;
-    while(l<r)
+
+    while(l<=r)
     {
 
 
-         m=l+(r-l)/2;
+         m=l+((r-l)>>1);
 
-         if(arr[m]<=number)
+         if(arr[m]<number)
          {
 
-             r=m;
+             l=m+1;
          }
          else{
-            l=m+1;
+            r=m-1;
          }
     }
 
@@ -74,14 +71,18 @@ int main()
         {
 
             cin>>arr[i];
+
         }
         cout<<"Enter the elements to be searched"<<endl;
         int x;
         cin>>x;
 
         lowerBound pal;
-       cout<<pal.findlowerbound(arr,n,0,n-1,x)<<endl;
+        // note high = n-1 not n-1;
+        cout<<"range"<<endl;
+       cout<<pal.findlowerbound(arr,0,n-1,x)<<endl;
 
+  cout<<pal.findlowerbound(arr,0,n-1,x+1)-1<<endl;
 
     }
 
