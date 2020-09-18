@@ -79,8 +79,7 @@ int MinimumSwapToSortTheArray::findMinswap()
     return ans;
 }
 
-#include<bits/stdc++.h>
-using namespace std;
+
 
 int main()
 {
