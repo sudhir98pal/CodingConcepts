@@ -5,8 +5,6 @@
 class Solution {
 public:
     
-    
-   
     ll parent[1005];
     // as max number of pints are 1000
     
@@ -44,7 +42,7 @@ public:
         // forming edges
         for(int i=0;i<n;i++)
         {
-            for(int j=i+1;j<n;j++)
+            for(int j=0;j<i;j++)
             {
                 ll weight=abs(points[i][0]-points[j][0])+abs(points[i][1]-points[j][1]);
                 edges.push_back({weight,{i,j}});
