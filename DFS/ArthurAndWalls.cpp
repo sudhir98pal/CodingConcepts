@@ -25,13 +25,13 @@ for(i=0;i<2;i++)
         arr[x+i][y+j]='.';
     }
 }
-int p=0;
+
 // all 9 directions
 for(i=-1;i<2;i++)
 {
     for(j=-1;j<2;j++)
     {
-        p++;
+       
         dfs(x+i,y+j);
     }
 }
